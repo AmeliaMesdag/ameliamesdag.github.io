@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets'
+
+/**
+ * Logo Component
+ *
+ * @description Logo description
+ */
+interface Props {
+  /**
+   * Whether to load the image eagerly or lazily
+   * @default 'eager'
+   */
+  loading?: 'eager' | 'lazy'
+}
+
+const { loading = 'eager' }: Props = Astro.props
+---
+
+<a href="/" class="flex items-center gap-2 !no-underline">
+  <Image src="/favicon-64.png" alt="Logo" width="48" height="48" loading={loading} />
+  <span class="font-bold">Amelia Mesdag</span>
+</a>
+
+<style lang="scss">
+  a {
+    color: var(--foreground-color);
+  }
+</style>
